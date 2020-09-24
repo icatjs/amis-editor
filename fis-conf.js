@@ -75,6 +75,10 @@ fis.match('/node_modules/**.js', {
     isMod: true
 });
 
+fis.match('amis/schema.json', {
+    release: '/schema.json'
+});
+
 fis.match('*.{jsx,tsx,ts}', {
     parser: [
         fis.plugin('typescript', {
@@ -156,7 +160,7 @@ fis.media('dev')
     .match('/node_modules/**.js', {
         packTo: '/pkg/npm.js'
     })
-    .match('monaco-editor/**.js', {
+    .match('{monaco-editor,amis-editor}/**.js', {
         packTo: null
     });
 
@@ -245,4 +249,7 @@ ghPages.match('{*.min.js,monaco-editor/**.js}', {
 });
 ghPages.match('monaco-editor/**', {
     useHash: false
+});
+ghPages.match('amis/schema.json', {
+    release: '/schema.json'
 });
